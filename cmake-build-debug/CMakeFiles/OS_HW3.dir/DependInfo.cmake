@@ -1,18 +1,26 @@
+
+# Consider dependencies only in project.
+set(CMAKE_DEPENDS_IN_PROJECT_ONLY OFF)
+
 # The set of languages for which implicit dependencies are needed:
 set(CMAKE_DEPENDS_LANGUAGES
   "C"
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/cygdrive/c/Users/מעיין/CLionProjects/OS_HW3/main.c" "/cygdrive/c/Users/מעיין/CLionProjects/OS_HW3/cmake-build-debug/CMakeFiles/OS_HW3.dir/main.c.o"
-  "/cygdrive/c/Users/מעיין/CLionProjects/OS_HW3/message_reader.c" "/cygdrive/c/Users/מעיין/CLionProjects/OS_HW3/cmake-build-debug/CMakeFiles/OS_HW3.dir/message_reader.c.o"
-  "/cygdrive/c/Users/מעיין/CLionProjects/OS_HW3/message_sender.c" "/cygdrive/c/Users/מעיין/CLionProjects/OS_HW3/cmake-build-debug/CMakeFiles/OS_HW3.dir/message_sender.c.o"
-  "/cygdrive/c/Users/מעיין/CLionProjects/OS_HW3/message_slot.c" "/cygdrive/c/Users/מעיין/CLionProjects/OS_HW3/cmake-build-debug/CMakeFiles/OS_HW3.dir/message_slot.c.o"
+  "/home/student/CLionProjects/OS-HW3/main.c" "/home/student/CLionProjects/OS-HW3/cmake-build-debug/CMakeFiles/OS_HW3.dir/main.c.o"
+  "/home/student/CLionProjects/OS-HW3/message_reader.c" "/home/student/CLionProjects/OS-HW3/cmake-build-debug/CMakeFiles/OS_HW3.dir/message_reader.c.o"
+  "/home/student/CLionProjects/OS-HW3/message_sender.c" "/home/student/CLionProjects/OS-HW3/cmake-build-debug/CMakeFiles/OS_HW3.dir/message_sender.c.o"
+  "/home/student/CLionProjects/OS-HW3/message_slot.c" "/home/student/CLionProjects/OS-HW3/cmake-build-debug/CMakeFiles/OS_HW3.dir/message_slot.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_C_TARGET_INCLUDE_PATH
+  )
+
+# The set of dependency files which are needed:
+set(CMAKE_DEPENDS_DEPENDENCY_FILES
   )
 
 # Targets to which this target links.

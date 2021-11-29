@@ -8,88 +8,92 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/cygdrive/c/Users/מעיין/CLionProjects/OS_HW3/cmake-build-debug"/>
+				<Option working_dir="/home/student/CLionProjects/OS-HW3/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/מעיין/CLionProjects/OS_HW3/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/מעיין/CLionProjects/OS_HW3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/מעיין/CLionProjects/OS_HW3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/מעיין/CLionProjects/OS_HW3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="rebuild_cache">
-				<Option working_dir="/cygdrive/c/Users/מעיין/CLionProjects/OS_HW3/cmake-build-debug"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/מעיין/CLionProjects/OS_HW3/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/מעיין/CLionProjects/OS_HW3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/מעיין/CLionProjects/OS_HW3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/מעיין/CLionProjects/OS_HW3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/student/CLionProjects/OS-HW3/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/student/CLionProjects/OS-HW3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/student/CLionProjects/OS-HW3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/student/CLionProjects/OS-HW3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/cygdrive/c/Users/מעיין/CLionProjects/OS_HW3/cmake-build-debug"/>
+				<Option working_dir="/home/student/CLionProjects/OS-HW3/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/מעיין/CLionProjects/OS_HW3/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/מעיין/CLionProjects/OS_HW3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/מעיין/CLionProjects/OS_HW3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/מעיין/CLionProjects/OS_HW3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/student/CLionProjects/OS-HW3/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/student/CLionProjects/OS-HW3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/student/CLionProjects/OS-HW3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/student/CLionProjects/OS-HW3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/student/CLionProjects/OS-HW3/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/student/CLionProjects/OS-HW3/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/student/CLionProjects/OS-HW3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/student/CLionProjects/OS-HW3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/student/CLionProjects/OS-HW3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="OS_HW3">
-				<Option output="/cygdrive/c/Users/מעיין/CLionProjects/OS_HW3/cmake-build-debug/OS_HW3.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/cygdrive/c/Users/מעיין/CLionProjects/OS_HW3/cmake-build-debug"/>
+				<Option output="/home/student/CLionProjects/OS-HW3/cmake-build-debug/OS_HW3" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/student/CLionProjects/OS-HW3/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/10/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
 					<Add directory="/usr/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/10/../../../../lib/../include/w32api"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/מעיין/CLionProjects/OS_HW3/cmake-build-debug/Makefile&quot;  VERBOSE=1 OS_HW3"/>
-					<CompileFile command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/מעיין/CLionProjects/OS_HW3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/מעיין/CLionProjects/OS_HW3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/מעיין/CLionProjects/OS_HW3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/student/CLionProjects/OS-HW3/cmake-build-debug/Makefile&quot;  VERBOSE=1 OS_HW3"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/student/CLionProjects/OS-HW3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/student/CLionProjects/OS-HW3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/student/CLionProjects/OS-HW3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="OS_HW3/fast">
-				<Option output="/cygdrive/c/Users/מעיין/CLionProjects/OS_HW3/cmake-build-debug/OS_HW3.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/cygdrive/c/Users/מעיין/CLionProjects/OS_HW3/cmake-build-debug"/>
+				<Option output="/home/student/CLionProjects/OS-HW3/cmake-build-debug/OS_HW3" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/student/CLionProjects/OS-HW3/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/10/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
 					<Add directory="/usr/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/10/../../../../lib/../include/w32api"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/מעיין/CLionProjects/OS_HW3/cmake-build-debug/Makefile&quot;  VERBOSE=1 OS_HW3/fast"/>
-					<CompileFile command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/מעיין/CLionProjects/OS_HW3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/מעיין/CLionProjects/OS_HW3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/מעיין/CLionProjects/OS_HW3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/student/CLionProjects/OS-HW3/cmake-build-debug/Makefile&quot;  VERBOSE=1 OS_HW3/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/student/CLionProjects/OS-HW3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/student/CLionProjects/OS-HW3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/student/CLionProjects/OS-HW3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/cygdrive/c/Users/מעיין/CLionProjects/OS_HW3/main.c">
+		<Unit filename="/home/student/CLionProjects/OS-HW3/main.c">
 			<Option target="OS_HW3"/>
 		</Unit>
-		<Unit filename="/cygdrive/c/Users/מעיין/CLionProjects/OS_HW3/message_reader.c">
+		<Unit filename="/home/student/CLionProjects/OS-HW3/message_reader.c">
 			<Option target="OS_HW3"/>
 		</Unit>
-		<Unit filename="/cygdrive/c/Users/מעיין/CLionProjects/OS_HW3/message_sender.c">
+		<Unit filename="/home/student/CLionProjects/OS-HW3/message_sender.c">
 			<Option target="OS_HW3"/>
 		</Unit>
-		<Unit filename="/cygdrive/c/Users/מעיין/CLionProjects/OS_HW3/message_slot.c">
+		<Unit filename="/home/student/CLionProjects/OS-HW3/message_slot.c">
 			<Option target="OS_HW3"/>
 		</Unit>
-		<Unit filename="/cygdrive/c/Users/מעיין/CLionProjects/OS_HW3/message_slot.h">
+		<Unit filename="/home/student/CLionProjects/OS-HW3/message_slot.h">
 			<Option target="OS_HW3"/>
 		</Unit>
-		<Unit filename="/cygdrive/c/Users/מעיין/CLionProjects/OS_HW3/CMakeLists.txt">
+		<Unit filename="/home/student/CLionProjects/OS-HW3/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

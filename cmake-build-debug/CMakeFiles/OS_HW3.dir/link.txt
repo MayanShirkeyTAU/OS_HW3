@@ -1,1 +1,1 @@
-/usr/bin/cc -g -Wl,--enable-auto-import CMakeFiles/OS_HW3.dir/main.c.o CMakeFiles/OS_HW3.dir/message_slot.c.o CMakeFiles/OS_HW3.dir/message_reader.c.o CMakeFiles/OS_HW3.dir/message_sender.c.o -o OS_HW3.exe -Wl,--out-implib,libOS_HW3.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
+/usr/bin/cc -g CMakeFiles/OS_HW3.dir/main.c.o CMakeFiles/OS_HW3.dir/message_slot.c.o CMakeFiles/OS_HW3.dir/message_reader.c.o CMakeFiles/OS_HW3.dir/message_sender.c.o -o OS_HW3 

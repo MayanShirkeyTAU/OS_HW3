@@ -5,7 +5,7 @@
 
 #include <linux/kernel.h>   /* We're doing kernel work */
 #include <linux/module.h>   /* Specifically, a module */
-#include <linux/fs.h>       /* for register_chrdev */
+#include <linux/fs.h>       /* for struct file */
 #include <linux/uaccess.h>  /* for get_user and put_user */
 #include <linux/string.h>   /* for memset. NOTE - not string.h!*/
 #include <linux/malloc.h>
@@ -26,12 +26,19 @@ struct chardev_info {
     spinlock_t lock;
 };
 
-typedef struct slot {
-    int minor;
-    struct slot *next;
-} msgSlot;
+typedef struct channel {
+    char buffer[BUF_LEN];
+    int channel_id;
+    struct channel *next;
+} channel;
 
-msgSlot *first_slot = NULL;
+typedef struct msg_slot {
+    int minor;
+    channel *first_channel;
+    struct msg_slot *next;
+} msg_slot;
+
+msg_slot *first_slot = NULL;
 
 // used to prevent concurent access into the same device
 static int dev_open_flag = 0;
@@ -46,26 +53,25 @@ static int device_open(struct inode *inode,
                        struct file *file) {
     unsigned long flags; // for spinlock
     int minor;
-    msgSlot *current;
+    msg_slot *current, *new_slot;
 
     // We don't want to talk to two processes at the same time
     spin_lock_irqsave(&device_info.lock, flags);
-    if (dev_open_flag) {
-        spin_unlock_irqrestore(&device_info.lock, flags);
-        return -EBUSY;
-    }
-    minor = iminor(inode);
-    if (first_slot == NULL) {
-        first_slot = (msgSlot *) valloc(sizeof(msgSlot));
-        first_slot->minor = minor;
-        first_slot->next = NULL;
-    } else {
+    {
+        minor = iminor(inode);
+        new_slot = (msg_slot *) valloc(sizeof(msg_slot));
+        new_slot->minor = minor;
+        new_slot->next = NULL;
         current = first_slot;
-        while ((current->next != NULL) && (current->minor != minor)) current = current->next;
-        if (current->next != NULL) return EXISTS;
+        if (first_slot == NULL){
+            first_slot = new_slot;
+            file->private_data = (void *) first_slot;
+        }
+        else {
+            while ((current->next != NULL) && (current->minor != minor)) current = current->next;
+            if (current->next == NULL) current->next = new_slot;
+        }
     }
-    dev_open_flag++;
-
     spin_unlock_irqrestore(&device_info.lock, flags);
     return SUCCESS;
 }
