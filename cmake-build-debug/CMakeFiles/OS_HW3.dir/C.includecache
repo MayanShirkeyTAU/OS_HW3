@@ -6,7 +6,23 @@
 
 #IncludeRegexTransform: 
 
-/home/student/CLionProjects/OS-HW3/main.c
+/cygdrive/c/Users/מעיין/CLionProjects/OS_HW3/main.c
 stdio.h
+-
+
+/cygdrive/c/Users/מעיין/CLionProjects/OS_HW3/message_reader.c
+
+/cygdrive/c/Users/מעיין/CLionProjects/OS_HW3/message_sender.c
+
+/cygdrive/c/Users/מעיין/CLionProjects/OS_HW3/message_slot.c
+linux/kernel.h
+-
+linux/module.h
+-
+linux/fs.h
+-
+linux/uaccess.h
+-
+linux/string.h
 -
 
