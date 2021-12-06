@@ -3,13 +3,12 @@
 #undef MODULE
 #define MODULE
 
-#include <linux/kernel.h>   /* We're doing kernel work */
-#include <linux/module.h>   /* Specifically, a module */
-#include <linux/fs.h>       /* for struct file */
-#include <linux/uaccess.h>  /* for get_user and put_user */
-#include <linux/string.h>   /* for memset. NOTE - not string.h!*/
-#include <linux/malloc.h>
-#include <linux/mm.h>
+#include <linux/kernel.h>
+#include <linux/module.h>
+#include <linux/fs.h>
+#include <linux/uaccess.h>
+#include <linux/string.h>
+#include <linux/errno.h>
 
 MODULE_LICENSE("GPL");
 
@@ -18,6 +17,7 @@ MODULE_LICENSE("GPL");
 #define DEVICE_RANGE_NAME "char_dev"
 #define BUF_LEN 128
 #define DEVICE_FILE_NAME "simple_char_dev"
+#define EMPTY '\0'
 
 // device MAJOR number
 static const int MAJOR;
@@ -34,7 +34,7 @@ typedef struct channel {
 
 typedef struct msg_slot {
     int minor;
-    channel *first_channel;
+    channel *first_channel, *active_channel;
     struct msg_slot *next;
 } msg_slot;
 
@@ -45,95 +45,100 @@ static int dev_open_flag = 0;
 
 static struct chardev_info device_info;
 
-// The message the device will give when asked
-static char the_message[BUF_LEN];
+static void init_msg_slot(msg_slot *slot, int minor) {
+    slot->minor = minor;
+    slot->first_channel = NULL;
+    slot->active_channel = NULL;
+    slot->next = NULL;
+}
+
+static void init_channel(channel *c, int channel_id) {
+    int i;
+    c->channel_id = channel_id;
+    for (i = 0; i < BUF_LEN; i++) c->buffer[i] = EMPTY;
+    c->next = NULL;
+}
+
+static void activate_channel(msg_slot *slot, unsigned long channel_id) {
+    channel *c = slot->first_channel;
+    if (slot->first_channel == NULL) {
+        slot->first_channel = (channel *) kmalloc(sizeof(channel), GFP_KERNEL);
+        init_channel(slot->first_channel, channel_id);
+        slot->active_channel = slot->first_channel;
+    }
+    while (c->channel_id != channel_id && c->next != NULL) c = c->next;
+    if (c->channel_id == channel_id) slot->active_channel = c;
+    else {
+        c->next = (channel *) kmalloc(sizeof(channel), GFP_KERNEL);
+        init_channel(c->next, channel_id);
+        slot->active_channel = c->next;
+    }
+}
 
 //================== DEVICE FUNCTIONS ===========================
+static long device_ioctl(struct file *file,
+                         unsigned int ioctl_command_id,
+                         unsigned long ioctl_param) {
+    if (ioctl_command_id != MSG_SLOT_CHANNEL || ioctl_param == 0) return -EINVAL;
+    msg_slot *slot = (msg_slot *) file->private_data;
+    activate_channel(slot, ioctl_param);
+}
+
+
 static int device_open(struct inode *inode,
                        struct file *file) {
-    unsigned long flags; // for spinlock
     int minor;
-    msg_slot *current, *new_slot;
+    msg_slot *current;
 
-    // We don't want to talk to two processes at the same time
-    spin_lock_irqsave(&device_info.lock, flags);
-    {
-        minor = iminor(inode);
-        new_slot = (msg_slot *) valloc(sizeof(msg_slot));
-        new_slot->minor = minor;
-        new_slot->next = NULL;
-        current = first_slot;
-        if (first_slot == NULL){
-            first_slot = new_slot;
-            file->private_data = (void *) first_slot;
-        }
-        else {
-            while ((current->next != NULL) && (current->minor != minor)) current = current->next;
-            if (current->next == NULL) current->next = new_slot;
+    minor = iminor(inode);
+    current = first_slot;
+    if (first_slot == NULL) {
+        first_slot = (msg_slot *) kmalloc(sizeof(msg_slot), GFP_KERNEL);
+        init_msg_slot(first_slot, minor);
+        file->private_data = (void *) first_slot;
+    } else {
+        while ((current->next != NULL) && (current->minor != minor)) current = current->next;
+        if (current->minor == minor) {
+            current->next = (msg_slot *) kmalloc(sizeof(msg_slot), GFP_KERNEL);
+            init_msg_slot(current->next, minor);
+            file->private_data = (void *) current->next;
         }
     }
-    spin_unlock_irqrestore(&device_info.lock, flags);
     return SUCCESS;
 }
 
 //---------------------------------------------------------------
-static int device_release(struct inode *inode,
-                          struct file *file) {
-    unsigned long flags; // for spinlock
-    printk("Invoking device_release(%p,%p)\n", inode, file);
-
-    // ready for our next caller
-    spin_lock_irqsave(&device_info.lock, flags);
-    dev_open_flag--;
-    spin_unlock_irqrestore(&device_info.lock, flags);
-    return SUCCESS;
+static int device_release(struct inode *inode, struct file *file) {
+    return 0;
 }
 
 //---------------------------------------------------------------
 // a process which has already opened
 // the device file attempts to read from it
-static ssize_t device_read(struct file *file,
-                           char __user
-
-* buffer,
-size_t length,
-        loff_t
-*      offset )
-{
-// read doesnt really do anything (for now)
-printk( "Invocing device_read(%p,%ld) - "
-"operation not supported yet\n"
-"(last written - %s)\n",
-file, length, the_message );
-//invalid argument error
-return -
-EINVAL;
+static ssize_t device_read(struct file *file, char __user *buffer, size_t length, loff_t *offset) {
+    char receiver[length];
+    int i = -1;
+    if (slot->active_channel == NULL) return -EINVAL;
+    msg_slot *slot = (msg_slot *) file->private_data;
+    while (++i < length) {
+        if (slot->active_channel->buffer[i] == EMPTY) return -EWOULDBLOCK;
+        if (put_user(slot->active_channel->buffer[i], receiver[i]) < 0) return -EFAULT;
+    }
+    slot->active_channel->buffer = receiver;
 }
 
 //---------------------------------------------------------------
 // a processs which has already opened
 // the device file attempts to write to it
-static ssize_t device_write(struct file *file,
-                            const char __user
-
-* buffer,
-size_t length,
-        loff_t
-*            offset)
-{
-int i;
-printk("Invoking device_write(%p,%ld)\n", file, length);
-for(
-i = 0;
-i < length && i < BUF_LEN; ++i )
-{
-get_user(the_message[i],
-&buffer[i]);
-}
-
-// return the number of input characters used
-return
-i;
+static ssize_t device_write(struct file *file, const char __user *buffer, size_t length, loff_t *offset) {
+    int i = -1;
+    char receiver[length];
+    msg_slot *slot = (msg_slot *) file->private_data;
+    if (slot->active_channel == NULL) return -EINVAL;
+    if (length < 0 || length > BUF_LEN) return -EMSGSIZE;
+    while (++i < length)
+        if (get_user(receiver[i], buffer[i]) < 0) return -EFAULT;
+    slot->active_channel->buffer = receiver;
 }
 
 //==================== DEVICE SETUP =============================
