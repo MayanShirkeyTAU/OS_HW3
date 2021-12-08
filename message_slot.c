@@ -15,16 +15,11 @@ MODULE_LICENSE("GPL");
 #define SUCCESS 0
 #define EXISTS -1
 #define DEVICE_RANGE_NAME "char_dev"
-#define BUF_LEN 128
 #define DEVICE_FILE_NAME "simple_char_dev"
 #define EMPTY '\0'
 
 // device MAJOR number
 static const int MAJOR;
-
-struct chardev_info {
-    spinlock_t lock;
-};
 
 typedef struct channel {
     char buffer[BUF_LEN];
@@ -76,9 +71,7 @@ static void activate_channel(msg_slot *slot, unsigned long channel_id) {
 }
 
 //================== DEVICE FUNCTIONS ===========================
-static long device_ioctl(struct file *file,
-                         unsigned int ioctl_command_id,
-                         unsigned long ioctl_param) {
+static long device_ioctl(struct file *file, unsigned int ioctl_command_id, unsigned long ioctl_param) {
     if (ioctl_command_id != MSG_SLOT_CHANNEL || ioctl_param == 0) return -EINVAL;
     msg_slot *slot = (msg_slot *) file->private_data;
     activate_channel(slot, ioctl_param);
