@@ -44,6 +44,7 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/usr/src/linux-headers-5.0.0-23/include"/>
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
@@ -64,6 +65,7 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/usr/src/linux-headers-5.0.0-23/include"/>
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
@@ -78,6 +80,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/student/CLionProjects/OS-HW3/ex3_tester.c">
+			<Option target="OS_HW3"/>
+		</Unit>
 		<Unit filename="/home/student/CLionProjects/OS-HW3/main.c">
 			<Option target="OS_HW3"/>
 		</Unit>

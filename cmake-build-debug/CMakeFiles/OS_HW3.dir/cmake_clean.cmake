@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/OS_HW3.dir/ex3_tester.c.o"
   "CMakeFiles/OS_HW3.dir/main.c.o"
   "CMakeFiles/OS_HW3.dir/message_reader.c.o"
   "CMakeFiles/OS_HW3.dir/message_sender.c.o"

@@ -79,9 +79,22 @@ CMakeFiles/OS_HW3.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OS_HW3.dir/main.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/student/CLionProjects/OS-HW3/main.c -o CMakeFiles/OS_HW3.dir/main.c.s
 
+CMakeFiles/OS_HW3.dir/ex3_tester.c.o: CMakeFiles/OS_HW3.dir/flags.make
+CMakeFiles/OS_HW3.dir/ex3_tester.c.o: ../ex3_tester.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/student/CLionProjects/OS-HW3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/OS_HW3.dir/ex3_tester.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_HW3.dir/ex3_tester.c.o -c /home/student/CLionProjects/OS-HW3/ex3_tester.c
+
+CMakeFiles/OS_HW3.dir/ex3_tester.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OS_HW3.dir/ex3_tester.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/student/CLionProjects/OS-HW3/ex3_tester.c > CMakeFiles/OS_HW3.dir/ex3_tester.c.i
+
+CMakeFiles/OS_HW3.dir/ex3_tester.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OS_HW3.dir/ex3_tester.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/student/CLionProjects/OS-HW3/ex3_tester.c -o CMakeFiles/OS_HW3.dir/ex3_tester.c.s
+
 CMakeFiles/OS_HW3.dir/message_slot.c.o: CMakeFiles/OS_HW3.dir/flags.make
 CMakeFiles/OS_HW3.dir/message_slot.c.o: ../message_slot.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/student/CLionProjects/OS-HW3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/OS_HW3.dir/message_slot.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/student/CLionProjects/OS-HW3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/OS_HW3.dir/message_slot.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_HW3.dir/message_slot.c.o -c /home/student/CLionProjects/OS-HW3/message_slot.c
 
 CMakeFiles/OS_HW3.dir/message_slot.c.i: cmake_force
@@ -94,7 +107,7 @@ CMakeFiles/OS_HW3.dir/message_slot.c.s: cmake_force
 
 CMakeFiles/OS_HW3.dir/message_reader.c.o: CMakeFiles/OS_HW3.dir/flags.make
 CMakeFiles/OS_HW3.dir/message_reader.c.o: ../message_reader.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/student/CLionProjects/OS-HW3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/OS_HW3.dir/message_reader.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/student/CLionProjects/OS-HW3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/OS_HW3.dir/message_reader.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_HW3.dir/message_reader.c.o -c /home/student/CLionProjects/OS-HW3/message_reader.c
 
 CMakeFiles/OS_HW3.dir/message_reader.c.i: cmake_force
@@ -107,7 +120,7 @@ CMakeFiles/OS_HW3.dir/message_reader.c.s: cmake_force
 
 CMakeFiles/OS_HW3.dir/message_sender.c.o: CMakeFiles/OS_HW3.dir/flags.make
 CMakeFiles/OS_HW3.dir/message_sender.c.o: ../message_sender.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/student/CLionProjects/OS-HW3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/OS_HW3.dir/message_sender.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/student/CLionProjects/OS-HW3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/OS_HW3.dir/message_sender.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_HW3.dir/message_sender.c.o -c /home/student/CLionProjects/OS-HW3/message_sender.c
 
 CMakeFiles/OS_HW3.dir/message_sender.c.i: cmake_force
@@ -121,6 +134,7 @@ CMakeFiles/OS_HW3.dir/message_sender.c.s: cmake_force
 # Object files for target OS_HW3
 OS_HW3_OBJECTS = \
 "CMakeFiles/OS_HW3.dir/main.c.o" \
+"CMakeFiles/OS_HW3.dir/ex3_tester.c.o" \
 "CMakeFiles/OS_HW3.dir/message_slot.c.o" \
 "CMakeFiles/OS_HW3.dir/message_reader.c.o" \
 "CMakeFiles/OS_HW3.dir/message_sender.c.o"
@@ -129,12 +143,13 @@ OS_HW3_OBJECTS = \
 OS_HW3_EXTERNAL_OBJECTS =
 
 OS_HW3: CMakeFiles/OS_HW3.dir/main.c.o
+OS_HW3: CMakeFiles/OS_HW3.dir/ex3_tester.c.o
 OS_HW3: CMakeFiles/OS_HW3.dir/message_slot.c.o
 OS_HW3: CMakeFiles/OS_HW3.dir/message_reader.c.o
 OS_HW3: CMakeFiles/OS_HW3.dir/message_sender.c.o
 OS_HW3: CMakeFiles/OS_HW3.dir/build.make
 OS_HW3: CMakeFiles/OS_HW3.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/student/CLionProjects/OS-HW3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking C executable OS_HW3"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/student/CLionProjects/OS-HW3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking C executable OS_HW3"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/OS_HW3.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

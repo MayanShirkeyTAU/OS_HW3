@@ -13,7 +13,8 @@
 int main(int argc, char *argv[]) {
     unsigned long cid = (unsigned long) atoi(argv[2]);
     char buffer[BUF_LEN];
-    int fd, msg_len;
+    int fd;
+    ssize_t msg_len;
     if (argc != 3) {
         perror("exactly 2 arguments are required.");
         exit(1);
@@ -29,11 +30,11 @@ int main(int argc, char *argv[]) {
     }
     msg_len = read(fd, buffer, BUF_LEN);
     if (msg_len < 0) {
-        perror("we couldn't read the message");
+        perror("couldn't read the message");
         exit(1);
     }
-    if(write(PRINTLN, buffer, msg_len)){
-        perror("we couldn't print your message");
+    if(write(PRINTLN, buffer, msg_len) < 0){
+        perror("couldn't print the message");
         exit(1);
     }
     if(close(fd) < 0){

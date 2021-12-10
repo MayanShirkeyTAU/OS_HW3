@@ -129,6 +129,30 @@ OS_HW3/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/OS_HW3.dir/build.make CMakeFiles/OS_HW3.dir/build
 .PHONY : OS_HW3/fast
 
+ex3_tester.o: ex3_tester.c.o
+.PHONY : ex3_tester.o
+
+# target to build an object file
+ex3_tester.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OS_HW3.dir/build.make CMakeFiles/OS_HW3.dir/ex3_tester.c.o
+.PHONY : ex3_tester.c.o
+
+ex3_tester.i: ex3_tester.c.i
+.PHONY : ex3_tester.i
+
+# target to preprocess a source file
+ex3_tester.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OS_HW3.dir/build.make CMakeFiles/OS_HW3.dir/ex3_tester.c.i
+.PHONY : ex3_tester.c.i
+
+ex3_tester.s: ex3_tester.c.s
+.PHONY : ex3_tester.s
+
+# target to generate assembly for a file
+ex3_tester.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OS_HW3.dir/build.make CMakeFiles/OS_HW3.dir/ex3_tester.c.s
+.PHONY : ex3_tester.c.s
+
 main.o: main.c.o
 .PHONY : main.o
 
@@ -234,6 +258,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... OS_HW3"
+	@echo "... ex3_tester.o"
+	@echo "... ex3_tester.i"
+	@echo "... ex3_tester.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

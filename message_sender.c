@@ -18,19 +18,19 @@ int main(int argc, char *argv[]) {
     }
     fd = open(argv[1], O_WRONLY);
     if (fd < 0) {
-        perror("4 arguments are required");
+        perror("couldn't process your request 1");
         exit(1);
     }
     if (ioctl(fd, MSG_SLOT_CHANNEL, cid) < 0) {
-        perror("couldn't process your request");
+        perror("couldn't process your request 2");
         exit(1);
     }
     if (write(fd, msg, strlen(msg)) < 0) {
-        perror("we couldn't send the message");
+        perror("couldn't send the message 3");
         exit(1);
     }
     if(close(fd) < 0){
-        perror("couldn't process your request");
+        perror("couldn't process your request 4");
         exit(1);
     }
 }
